@@ -8,7 +8,6 @@ input=$(cat)
 
 # Extract message and event from JSON input
 message=$(echo "$input" | jq -r '.message // "Claude Code Notification"')
-session_id=$(echo "$input" | jq -r '.session_id // "unknown"')
 hook_event=$(echo "$input" | jq -r '.hook_event_name // "Unknown"')
 
 # Fallback if jq is not available
@@ -35,12 +34,8 @@ esac
 # Detect operating system and show notification accordingly
 case "$(uname -s)" in
     Darwin*)
-        # macOS - use terminal-notifier if available, fallback to osascript
-        if command -v terminal-notifier >/dev/null 2>&1; then
-            terminal-notifier -title "Claude Code" -message "$message" -sound default
-        else
-            osascript -e "display notification \"$message\" with title \"Claude Code\" sound name \"default\""
-        fi
+        # macOS - use terminal-notifier
+        terminal-notifier -title "Claude Code" -message "$message" -sound default
         ;;
     Linux*)
         # Linux - use notify-send
