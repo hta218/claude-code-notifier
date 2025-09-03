@@ -67,7 +67,7 @@ Create or edit `~/.claude/settings.json` and add:
 ```
 
 ### Step 6: Restart Claude Code
-Restart Claude Code to apply the changes.
+Restart Claude Code to apply the changes then simply prompt 'Hello' to see notifications in action.
 
 ## Usage
 
@@ -89,9 +89,10 @@ The script handles different notification types:
 
 ## Requirements
 
-### macOS
-- `terminal-notifier` (recommended) or built-in `osascript`
-- Install terminal-notifier: `brew install terminal-notifier`
+### macOS (recommended)
+- [`terminal-notifier`](https://github.com/julienXX/terminal-notifier) for pushing notifications
+- [`jq`](https://github.com/jqlang/jq) for JSON processing
+- Install: `brew install terminal-notifier jq`
 
 ### Linux
 - `notify-send` (usually pre-installed)
