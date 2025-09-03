@@ -25,6 +25,8 @@ chmod +x ~/.claude/claude-notification.sh
 ### Step 4: Enable notifications on your system
 Make sure notifications are enabled for Terminal/your shell application in your system settings.
 
+![Enable Terminal Notifications](https://cdn.shopify.com/s/files/1/0669/0262/2504/files/terminal-notifier.png?v=1756888696)
+
 ### Step 5: Add configuration to Claude settings
 Create or edit `~/.claude/settings.json` and add:
 ```json
@@ -59,10 +61,12 @@ Restart Claude Code to apply the changes.
 
 ## Usage
 
-Once installed, the script will automatically trigger notifications when Claude Code:
+Once installed, the script will automatically trigger notifications with default System sounds when Claude Code:
 - Requests permissions or user input
 - Completes tasks or responses
 - Ends sessions
+
+![Notification Preview](https://cdn.shopify.com/s/files/1/0669/0262/2504/files/terminal-notifier-noties.png?v=1756889242)
 
 ## Event Types
 
