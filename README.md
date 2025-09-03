@@ -13,7 +13,7 @@ brew install terminal-notifier
 
 ### Step 2: Create the script file
 ```bash
-curl -o ~/.claude/claude-code-notifier.sh https://raw.githubusercontent.com/hta218/claude-notification/main/claude-code-notifier.sh
+curl -o ~/.claude/claude-code-notifier.sh https://raw.githubusercontent.com/hta218/claude-code-notifier/main/claude-code-notifier.sh
 ```
 
 ### Step 3: Make it executable (macOS/Linux)
