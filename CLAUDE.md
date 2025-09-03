@@ -2,24 +2,50 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project Structure
+## Project Overview
 
-This is a minimal project directory containing:
-- `claude-code-notifier.sh` - System notification hook script for Claude Code events
-- `.claude/settings.json` - Claude Code configuration with notification hooks
+This is a Claude Code notification system that provides cross-platform system notifications for Claude Code events. The project consists of a shell script (`claude-code-notifier.sh`) that integrates with Claude Code hooks to display notifications when various events occur.
 
-## Claude Code Configuration
+## Key Components
 
-The repository has Claude Code hooks configured for notifications:
-- **Notification Hook**: Triggers system notifications using `claude-code-notifier.sh`
-- **Stop Hook**: Shows completion notifications when responses finish
+- **claude-code-notifier.sh**: Main notification script that handles cross-platform notification display
+  - Supports macOS (via terminal-notifier), Linux (via notify-send), and Windows (via PowerShell toast notifications)
+  - Processes JSON input from Claude Code hooks
+  - Customizes notification messages based on event types (SessionStart, SessionEnd, Stop, Notification)
 
-The notification script supports cross-platform notifications (macOS, Linux, Windows) and can be customized for different hook events like SessionEnd, Stop, and general Notifications.
+## Dependencies
 
-## Development Commands
+### macOS
+- `terminal-notifier`: Install via `brew install terminal-notifier`
+- `jq`: Install via `brew install jq`
 
-Since this is a minimal JavaScript project without package.json or build configuration, standard Node.js commands apply:
-- `node test.js` - Run the test file
-- `node <filename>.js` - Execute any JavaScript file
+### Linux
+- `notify-send`: Usually pre-installed, install via `sudo apt install libnotify-bin` if missing
 
-No specific build, lint, or test commands are configured in this repository.
+### Windows
+- PowerShell (built-in on modern Windows)
+
+## Configuration
+
+The script is designed to be placed in `~/.claude/claude-code-notifier.sh` and configured in Claude Code's `~/.claude/settings.json` with hooks for:
+- SessionStart
+- SessionEnd  
+- Stop
+- Notification
+
+## Testing
+
+To test the notification script manually:
+```bash
+echo '{"message":"Test notification","hook_event_name":"Notification"}' | ./claude-code-notifier.sh
+```
+
+## Architecture
+
+The script follows a simple event-driven architecture:
+1. Reads JSON input from stdin containing message and hook event data
+2. Processes the event type to customize the notification message
+3. Detects the operating system and uses the appropriate notification system
+4. Falls back to terminal echo if no notification system is available
+
+The script is platform-agnostic and handles OS detection automatically, making it suitable for cross-platform deployment.
