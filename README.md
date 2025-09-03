@@ -13,12 +13,12 @@ brew install terminal-notifier
 
 ### Step 2: Create the script file
 ```bash
-curl -o ~/.claude/claude-notification.sh https://raw.githubusercontent.com/hta218/claude-notification/main/claude-notification.sh
+curl -o ~/.claude/claude-code-notifier.sh https://raw.githubusercontent.com/hta218/claude-notification/main/claude-code-notifier.sh
 ```
 
 ### Step 3: Make it executable (macOS/Linux)
 ```bash
-chmod +x ~/.claude/claude-notification.sh
+chmod +x ~/.claude/claude-code-notifier.sh
 ```
 **Note**: Windows users can skip this step.
 
@@ -37,7 +37,7 @@ Create or edit `~/.claude/settings.json` and add:
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/claude-notification.sh"
+            "command": "~/.claude/claude-code-notifier.sh"
           }
         ]
       }
@@ -47,7 +47,7 @@ Create or edit `~/.claude/settings.json` and add:
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/claude-notification.sh"
+            "command": "~/.claude/claude-code-notifier.sh"
           }
         ]
       }
@@ -57,7 +57,7 @@ Create or edit `~/.claude/settings.json` and add:
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/claude-notification.sh"
+            "command": "~/.claude/claude-code-notifier.sh"
           }
         ]
       }
@@ -67,7 +67,7 @@ Create or edit `~/.claude/settings.json` and add:
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/claude-notification.sh"
+            "command": "~/.claude/claude-code-notifier.sh"
           }
         ]
       }
