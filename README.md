@@ -1,6 +1,6 @@
 # Claude Code Notification
 
-🔔 Get desktop notifications when Claude Code needs permission or finishes stuff
+📢 Send system notifications when Claude Code requests permissions or completes tasks
 
 A cross-platform notification script that integrates with Claude Code to show system notifications for various events like session completions and permission requests.
 
