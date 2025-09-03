@@ -37,9 +37,9 @@ case "$(uname -s)" in
     Darwin*)
         # macOS - use terminal-notifier if available, fallback to osascript
         if command -v terminal-notifier >/dev/null 2>&1; then
-            terminal-notifier -title "Claude Code" -message "$message" -subtitle "Session: $session_id"
+            terminal-notifier -title "Claude Code" -message "$message" -subtitle "Session: $session_id" -sound default
         else
-            osascript -e "display notification \"$message\" with title \"Claude Code\" subtitle \"Session: $session_id\""
+            osascript -e "display notification \"$message\" with title \"Claude Code\" subtitle \"Session: $session_id\" sound name \"default\""
         fi
         ;;
     Linux*)
