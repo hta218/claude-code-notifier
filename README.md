@@ -51,6 +51,16 @@ Create or edit `~/.claude/settings.json` and add:
           }
         ]
       }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/claude-notification.sh"
+          }
+        ]
+      }
     ]
   }
 }
@@ -62,9 +72,9 @@ Restart Claude Code to apply the changes.
 ## Usage
 
 Once installed, the script will automatically trigger notifications with default System sounds when Claude Code:
-- Requests permissions or user input
-- Completes tasks or responses
-- Ends sessions
+- Requests permissions or user input (Notification hook)
+- Completes tasks or responses (Stop hook)
+- Ends sessions (SessionEnd hook)
 
 ![Notification Preview](https://cdn.shopify.com/s/files/1/0669/0262/2504/files/terminal-notifier-noties.png?v=1756889242)
 
