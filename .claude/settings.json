@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/hta218/Documents/side-projects/claude-notification.sh"
+            "command": "../claude-notification.sh"
           }
         ]
       }
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/hta218/Documents/side-projects/claude-notification.sh"
+            "command": "../claude-notification.sh"
           }
         ]
       }
