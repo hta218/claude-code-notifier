@@ -6,49 +6,56 @@ A cross-platform notification script that integrates with Claude Code to show sy
 
 ## Installation
 
-1. Create the notification script in your Claude directory:
-   ```bash
-   # Create the script file
-   curl -o ~/.claude/claude-notification.sh https://raw.githubusercontent.com/hta218/claude-notification/main/claude-notification.sh
-   
-   # Make it executable (macOS/Linux)
-   chmod +x ~/.claude/claude-notification.sh
-   ```
-   
-   **Note**: Windows users can skip the `chmod` step as it's not needed.
+### Step 1: Install terminal-notifier (macOS only)
+```bash
+brew install terminal-notifier
+```
 
-2. Add hook configuration to your Claude settings:
-   ```bash
-   # Create or update ~/.claude/settings.json
-   cat > ~/.claude/settings.json << 'EOF'
-   {
-     "hooks": {
-       "Notification": [
-         {
-           "hooks": [
-             {
-               "type": "command",
-               "command": "~/.claude/claude-notification.sh"
-             }
-           ]
-         }
-       ],
-       "Stop": [
-         {
-           "hooks": [
-             {
-               "type": "command",
-               "command": "~/.claude/claude-notification.sh"
-             }
-           ]
-         }
-       ]
-     }
-   }
-   EOF
-   ```
+### Step 2: Create the script file
+```bash
+curl -o ~/.claude/claude-notification.sh https://raw.githubusercontent.com/hta218/claude-notification/main/claude-notification.sh
+```
 
-3. Restart Claude Code to apply the changes
+### Step 3: Make it executable (macOS/Linux)
+```bash
+chmod +x ~/.claude/claude-notification.sh
+```
+**Note**: Windows users can skip this step.
+
+### Step 4: Enable notifications on your system
+Make sure notifications are enabled for Terminal/your shell application in your system settings.
+
+### Step 5: Add configuration to Claude settings
+Create or edit `~/.claude/settings.json` and add:
+```json
+{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/claude-notification.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/claude-notification.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### Step 6: Restart Claude Code
+Restart Claude Code to apply the changes.
 
 ## Usage
 
