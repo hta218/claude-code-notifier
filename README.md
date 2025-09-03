@@ -61,6 +61,16 @@ Create or edit `~/.claude/settings.json` and add:
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/claude-notification.sh"
+          }
+        ]
+      }
     ]
   }
 }
@@ -72,6 +82,7 @@ Restart Claude Code to apply the changes then simply prompt 'Hello' to see notif
 ## Usage
 
 Once installed, the script will automatically trigger notifications with default System sounds when Claude Code:
+- Starts sessions (SessionStart hook)
 - Requests permissions or user input (Notification hook)
 - Completes tasks or responses (Stop hook)
 - Ends sessions (SessionEnd hook)
@@ -82,6 +93,7 @@ Once installed, the script will automatically trigger notifications with default
 
 The script handles different notification types:
 
+- **SessionStart**: Shows "Session started 🚀"
 - **SessionEnd**: Shows "Session completed ✅"
 - **Stop**: Shows "Response finished 🏁"  
 - **Notification**: Shows the original message from Claude
